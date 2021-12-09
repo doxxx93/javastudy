@@ -196,6 +196,63 @@
 ### 3.8 기본형 매개변수와 참조형 매개변수 ☆
   * 기본형 매개변수 : 변수의 **값**을 읽기만 할 수 있다(read only)
     - bloolean, char, byte, short, int, long, float, double(8개)
-  * 참조형 매개변수 : 변수의 **값**을 읽고 **(주소)변경**할 수 있다(read & write)
-    - 기본형 매개변수와 달리 객체의 주소
+  * 참조형 매개변수 : 변수의 **값**을 읽고 **변경**할 수 있다(read & write)
+    - 기본형 매개변수와 달리 객체의 값이 아니라 주소를 메서드에 넘김
 ### 3.9 참조형 반환타입
+  * 메서드가 객체의 주소를 반환
+### 3.10 재귀호출
+  * 반복문보다 비효율적이지만 논리적으로 간결
+### 3.11 클래스 메서드(static 메서드)와 인스턴스 메서드
+  * 인스턴스 메서드
+    - 인스턴스 생성 후, '참조변수.메서드이름()'으로 호출
+    - 인스턴스 멤버(iv,im(instance method))와 관련된 작업을 하는 메서드
+    - 메서드 내에서 인스턴스 변수(iv) 사용 가능
+  * static 메서드(클래스 메서드)
+    - 객체 생성 없이 '클래스이름.메서드이름()'으로 호출
+    - 인스턴스 멤버(iv, im(instance method))와 관련없는 작업을 하는 메서드
+    - 메서드 내에서 인스턴스 변수(iv) 사용 불가
+  * static을 언제 붙여야 할까?
+    - 속성(멤버 변수)중에서 공통 속성에 static을 붙인다
+    - 인스턴스 멤버(iv,im)을 사용하지 않는 메서드에 static을 붙인다
+  * 메서드 간의 호출과 참조
+    - 같은 클래스에 속한 멤버들 간에는 별도의 인스턴스를 생성하지 않고도 서로 참조 가능
+    - 단, 클래스멤버가 인스턴스 멤버를 참조 또는 호출하고자 하는 경우에는 인스턴스를 생성 해야함
+    - 인스턴스 멤버가 존재하는 시점에 클래스 멤버는 항상 존재
+    - 클래스 멤버가 존재하는 시점에 인스턴스 멤버가 존재하지 않을 수 있음
+      ```java
+      class TestClass {
+         void instanceMethod() {}      // 인스턴스메서드
+         static void staticMathod() {} // static메서드
+
+         void instanceMethod2() {      // 인스턴스메서드 
+            instanceMethod();          // 다른 인스턴스메서드 호출
+            staticMethod();            // static메서드를 호출
+         }
+
+         static void staticMethod2() { // static 메서드
+            instanceMethod();          // 에러!! 인스턴스메서드 호출 불가
+            staticMethod();            // static 메서드는 호출 가능
+         }
+      }
+      ```
+
+      ```java
+      class TestClass2 {
+         int iv;                       // 인스턴스 변수
+         static int cv;                // 클래스 변수
+
+         void instanceMethod() {       // 인스턴스 메서드
+            System.out.println(iv);    // 인스턴스 변수 사용 가능
+            System.out.println(cv);    // 클래스변수 사용 가능
+         }
+
+         static void staticMethod() {  // 클래스 메서드
+            System.out.println(iv);    // 에러!! 인스턴스 변수 사용 불가
+            System.out.println(cv);    // 클래스 변수는 사용 가능
+         }
+      }
+      ```
+     - static메서드는 static메서드 호출 가능
+     - static메서드는 인스턴스변수 사용 불가
+     - static메서드는 인스턴스메서드 호출 불가
+     - static메서드 호출시 객체(인스턴스변수)가 없을수 있음
