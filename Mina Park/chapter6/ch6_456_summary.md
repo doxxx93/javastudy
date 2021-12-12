@@ -9,7 +9,7 @@
 * 의미: 한 클래스 내에 같은 이름의 메서드를 여러개 정의하는것
 <br><br>
 ### 4.2 성립조건
-
+`★THINGS TO REMEMBER`
 ```
 1. 메서드 이름이 같아야 한다
 2. 매개변수의 개수 or 타입이 달라야 한다
@@ -18,19 +18,19 @@
 
 ### 4.3 사용예시
 * 보기1 != 오버로딩 ☞ 성립조건2 준수 X
-```
+```java
 int add(int a, int b) {return a+b;}
 int add(int x, int y) {return x+y;}
 ```
 * 보기2 != 오버로딩 ☞ 성립조건3 
 
-```
+```java
 int add(int a, int b) {return a+b;}
 long add(int x, int y) {return (long)(x+y);}
 ```
 * 보기3 == 오버로딩  
 
-```
+```java
 long add(int a, long b) {return a+b;}
 long add(long a, int b) {return a+b;}
 ```
@@ -47,19 +47,19 @@ long add(long a, int b) {return a+b;}
 >>> 예시: int... nums, object... args 
 * 보기1
   + 가변인자 외 매개변수가 더 있을 경우 가변인자는 가장 마지막에 선언
-```
+```java
 public PrintStream printf(String format, Integer num, Object... args) {...}
 ```
 * 보기2
   + 인자의 개수 가변적으로 세팅가능
   + 예시:  (), ("a"), ("a", "b"), (new String[] {"A","B"}) 
   + 가변인자는 내부적으로 배열을 이용하므로 가변인자가 선언된 메서드 호출시마다 배열이 새로 생성
-```
+```java
 String  concat(string... str) {...}
 ``` 
 > Q. 매개변수의 타입을 배열로 지정하는 것과 어떤 차이가 있을까?
 >> 매개변수의 타입을 배열로 지정할 경우, 반드시 인자를 지정해줘야하므로 인자 생략 불가(null이나 길이가 0인 배열을 직접 지정 필요)
-```
+```java
 String  concat(String[] str) {...}
 
 String res = concat(new String[0]);
@@ -77,19 +77,21 @@ String res = concat();  <= 컴파일 에러(인자 지정 필요)
 * 의미: 인스턴스가 생성될 때 호출되는 '인스턴스 초기화 메서드(iv 초기화)'
   + 인스턴스 초기화:  인스턴스 변수에 적절한 값을 저장하는 것
 * 조건
+
+`★THINGS TO REMEMBER`
 ```
 1. 생성자 이름 = 클래스 이름
 2. 리턴값 없음(void는 생략)
 3. 모든 클래스는 반드시 생성자를 가져야 한다
 ``` 
 * 생성자의 오버로딩
-```
+```java
 calss Card {
     card() { //매개변수가 없는 생성자
         ...
     }
 
-    card(int a, String b) { //매개변수가 있는 생성자
+    card(String a, int b) { //매개변수가 있는 생성자
         ...
     }
 }
@@ -107,7 +109,6 @@ calss Card {
 ``` 
 클래스이름() {}
 ``` 
-* 유의사항: **_모든 클래스에는 반드시 하나 이상의 생성자가 있어야 한다_**
   
 ![기본생성자](https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_5.2_%EA%B8%B0%EB%B3%B8%EC%83%9D%EC%84%B1%EC%9E%90.JPG)
 > Q. 컴파일 에러 발생 원인은?
@@ -115,7 +116,7 @@ calss Card {
 >>> Data1의 경우 정의된 생성자 X => 컴파일러가 기본생성자 자동추가 O
 >>>> Q. 컴파일 에러 해결하려면?
 >>>>> Data2의 기본생성자를 직접 추가 => Data2() {};
->>>>>> **_클래스에 정의된 생성자가 하나도 없을 때만 컴파일러가 기본생성자 자동 추가_**
+>>>>>> **_"클래스에 정의된 생성자가 하나도 없을 때만 컴파일러가 기본생성자 자동 추가"_**
 
 ### 5.3 매개변수가 있는 생성자
 * 생성자도 메서드처럼 매개변수 선언하여 호출 시 값을 넘겨받아 인스턴스 초기화 작업에 사용 가능
@@ -123,5 +124,95 @@ calss Card {
   
 ![매개변수가 있는 생성자](https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_5.2_%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EA%B0%80%EC%9E%88%EB%8A%94%EC%83%9D%EC%84%B1%EC%9E%90.JPG)
 
+### 5.4 생성자에서 다른 생성자 호출하기 - this(), this
+* 생성자 간 서로 호출이 가능한 경우
+``` 
+1. 클래스 이름 대신 this 사용
+2. 반드시 첫 줄에서만 호출 가능
+```  
+![this() 사용 예시](https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_5.4_this().JPG)
+* 생성자 간 호출을 통해 유기적으로 연결함으로써 더 좋은 코드 작성, 유지보수 용이성 제고
 
+> Q. this() 와 this, 무엇이 다를까?
+>> + this() : 생성자
+<br>
+>> + this : 참조변수
+* `참조변수  this`
+  + 인스턴스 자신을 가리키는 참조변수로, 인스턴스변수(iv)와 지역변수(lv) 구분 목적
+  + 인스턴스 메서드, 생성자에서 사용가능
+    - 클래스 메서드(static 메서드)에서는 사용불가
+  + 모든 인스턴스 메서드에 숨겨진 채 존재
+    - 따로 선언 안해도 사용가능  
+
+![this 사용 예시] (https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_5.4_this.JPG)
+
+### 5.5 생성자를 이용한 인스턴스의 복사
+* 생성자를 사용하여 현재 사용중인 인스턴스와 같은 상태를 갖는 인스턴스 복사 가능
+* 이러한 기능을 이용하여 기존 코드를 재사용하고 간결하고 직관적인 코드 작성  
+
+![인스턴스 복사 예시](https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_5.5_%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EB%B3%B5%EC%82%AC.JPG)
+
+* 인스턴스 생성 시 고려사항
+
+``` 
+1. 클래스 - 어떤 클래스의 인스턴스를 생성할 것인가?
+2. 생성자 - 선택한 클래스의 어떤 생성자로 인스턴스를 생성할 것인가?
+```
+------------------------
+## 6. 변수의 초기화   
+<br>  
+
+### 6.1 기본개념
+  `★THINGS TO REMEMBER`
+* 의미: 변수 선언 뒤 처음으로 값을 저장하는 것
+* 특징: 멤버변수(cv,iv)는 자동초기화가 이뤄지지만, **_지역변수는 반드시 수동으로 초기화 필요_**
+> Q. 자동초기화될 경우 타입별 기본값은 무엇일까?
+> 
+![타입별 기본값](https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_6.1_%ED%83%80%EC%9E%85%EB%B3%84%EA%B8%B0%EB%B3%B8%EA%B0%92.JPG)
+* 초기화 방법
+``` 
+1. 지역변수(lv): 수동으로 초기화
+2. 멤버변수(cv,iv)
+    1) 자동초기화
+    2) 간단 초기화: 명시적 초기화(대입연산자 '=' 사용)
+    3) 복잡 초기화
+        (1) cv: 클래스 초기화 블록 사용
+        (2) iv
+            - 인스턴스 초기화 블록 사용 *거의 사용안함
+            - 생성자 사용
+```
+### 6.2 명시적 초기화
+* 예시
+``` java
+class Car {
+    int door = 4; //기본형 변수 초기화
+    Engine e = new Engine(); //참조형 변수 초기화(객체생성 필요)
+}
+```
+### 6.3 초기화 블록
+* 예시
+``` java
+class InitBlock {
+    static { .........} //클래스 초기화 블록
+    {.........} //인스턴스 초기화
+}
+```
+* 특징
+```
+* 클래스 초기화 블록: 클래스가 로딩될 때 1번만 실행
+* 인스턴스 초기화 블록: 생성자에서 공통으로 수행되는 작업에 사용, 인스턴스 생성 시마다 실행(생성자보다 먼저)
+```
+
+### 6.4 멤버변수의 초기화 시기와 순서
+  `★THINGS TO REMEMBER`
+  * 기본개념
+
+| 구분 | 순서 |초기화시점 | 초기화순서(자동 → 간단 → 복잡) |
+|:---:|:---:|:---:|:---:|
+| `클래스변수` | 1 | 최초 로딩 시 `1번` | 기본값 → 명시적초기화 → 클래스 초기화 블록  |
+| `인스턴스변수` | 2 | 인스턴스 생성시마다 인스턴스별로 | 기본값 → 명시적초기화 → 인스턴스 초기화 블록 → 생성자 |
+
+  * 예시
+  
+  ![멤버변수 초기화 순서](https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_6.4_%EC%B4%88%EA%B8%B0%ED%99%94%EC%88%9C%EC%84%9C.JPG)
 
