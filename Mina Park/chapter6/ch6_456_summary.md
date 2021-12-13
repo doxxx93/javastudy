@@ -142,7 +142,8 @@ calss Card {
   + 모든 인스턴스 메서드에 숨겨진 채 존재
     - 따로 선언 안해도 사용가능  
 
-![this 사용 예시] (https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_5.4_this.JPG)
+![this 사용 예시](https://github.com/doxxx93/javastudy/blob/main/Mina%20Park/chapter6/ch6_5.4_this.JPG)
+
 
 ### 5.5 생성자를 이용한 인스턴스의 복사
 * 생성자를 사용하여 현재 사용중인 인스턴스와 같은 상태를 갖는 인스턴스 복사 가능
