@@ -519,3 +519,78 @@ ex) Data d = new Data(); d.x = 10;
 </aside>
 
 ex) Date3 d2 = copy(d); // d2가 먼저 만들어집니다. 그리고 스택에서 copy 메서드 호출이 된다.
+
+## 3.10 재귀호출
+
+- 메서드의 내부에서 메서드 자신을 다시 호출하는 것.
+
+```jsx
+void method(int n){
+	if(n == 0)
+		return; //n의 값이 0일 때, 메서드 종료
+	System.out.println(n);
+	
+	method(--n); //재귀호출
+} 
+// 매개변수 n을 1씩 감소시키며 반복한다.
+
+void method(int n){
+	while(n!=0){
+	 System.out.println(n--);
+	}
+} 와 같으나, 반복문보다 수행시간이 더 오래 걸린다. 다만, 반복문보다 간결하다면 활용!
+```
+
+- static 메서드로 정의하기 떄문에 인스턴스를 생성하지않고 직접 호출 가능.
+- 다만, 재귀호출도 매개변수의 유효성 검사를 고려해서 조건문을 작성! ⇒ 그렇지않으면 계속해서 재귀호출만 일어나서 메서드가 종료되지않고 스택에 계속 데이터가 쌓여 스택오버플로우 발생! ⇒ 에러가 발생해서 프로그램 비정상적 종료
+
+## 3.11 클래스 메서드(static메서드)와 인스턴스 메서드
+
+<aside>
+💡 차이점: **iv 를 사용하냐 사용하지 않느냐**로 갈린다! 최대한 관련있는거끼리 묶고+ 시간 절약
+
+</aside>
+
+ - 인스턴스 메서드가 long add(){} 이런거면, static은 static  long add(){} 
+
+- static 메서드는 객체 생성 없이 '클래스 이름.메서드이름()' 으로 호출. iv와 im와 관련없는 작업.
+
+ex) Math.random(), Math.round()
+
+주의: **자기 작업에 필요한 값들을 다 lv로 해결  ex) MyMath2.add(200L, 100L); 얘네들은 그냥 lv**
+
+- 인스턴스 메서드는 인스턴스(객체) 생성 후, '참조변수.메서드이름()' 으로 호출. 메서드 내에서 iv 사용 가능. (메서드의 작업을 수행하는데 인스턴스 변수를 필요로 하는 메서드) but static이 붙은 멤버들을 사용할 수도 있다!
+
+(iv: 인스턴스 변수, im: 인스턴스 멤버) 
+
+> **중요: 객체는 변수(iv) 묶음  ====> 인스턴스 메서드에 왜 객체가 필요하냐면, iv를 사용할 건데 객체가 iv묶음이니까!! (순서도 iv 만들고 값 세팅해주고 호출해준다)**
+> 
+
+![static 메서드와 인스턴스 메서드의 매개변수 차이. ](https://blog.kakaocdn.net/dn/HAbp1/btrc4FpmGRz/CoID88JFAs18CQiy0izqOk/img.png)
+
+static 메서드와 인스턴스 메서드의 매개변수 차이. 
+
+![https://blog.kakaocdn.net/dn/bH5MkN/btrc6ShFiOi/NyVdfKdu4j0zGA9r4pYSOK/img.png](https://blog.kakaocdn.net/dn/bH5MkN/btrc6ShFiOi/NyVdfKdu4j0zGA9r4pYSOK/img.png)
+
+인스턴스메서드에서 객체는 iv로 이루어진다. 그래서 객체는 iv 묶음이라고 할 수 있다.
+
+<aside>
+💡  static을 언제 붙여야 할까? **iv를 사용하지 않을 때**!  객체 생성 않는 메서드만이 아니라!
+
+</aside>
+
+- 속성(멤버 변수) 중에서 **공통 속성**에 static을 붙인다. 메서드인 경우, 인스턴스 멤버(iv, im) 을 사용하지 않는 메서드에 static을 붙인다.
+
+==> 공통으로 쓰는 메서드에 static을 붙인다라고 오해하지 말라!! iv 안 쓸 때 붙이는거다.
+
+### 메서드 간의 호출과 참조
+
+-  static 메서드는 iv를 사용할 수 없다. 호출도 불가(객체가 생성되었을 수도 있지만, 아닐 수도 있기에 안된다. 보장성이 없으니 막았다). 그래서 클래스멤버가 인스턴스 멤버를 참조 또는 호출할 때는 인스턴스를 생성해야한다. cv는 static, 인스턴스 메서드가 모두 사용가능(**항상 존재하니까**)
+
+-  인스턴스 메서드가 호출됬다는 소리는 곧 객체가 이미 생성되었다는 뜻, iv를 쓸 수 있게 된다.
+
+ex) void instanceMethod(){} ; 같은 메서드가 호출됬다면- static 메서드는 인스턴스 메서드도 호출할 수 없다.(static은 가능) 인스턴스는 인스턴스,static 메서드 다 호출 된다!
+
+![메서드 간의 호출. staticMethod() 에 print("안녕하세요"); 이런 거면 이해가 쉽겠다. 메서드 뿐만 아니라 변수도 마찬가지이다!!](https://blog.kakaocdn.net/dn/bGwzBM/btrc6RQMvm6/wmlCkQeMu90sVGkHKA5AD1/img.png)
+
+메서드 간의 호출. staticMethod() 에 print("안녕하세요"); 이런 거면 이해가 쉽겠다. 메서드 뿐만 아니라 변수도 마찬가지이다!!
