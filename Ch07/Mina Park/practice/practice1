@@ -1,0 +1,49 @@
+package practice;
+
+class Car {
+	private int gasolineGauge; // private 접근 제어자 사용으로 같은 클래스 내에서만 접근 가능
+
+	Car(int gasolineGauge) {  
+        ; 매개변수가 있는 생성자를 통해 초기화
+		this.gasolineGauge = gasolineGauge; // 참조변수 this를 사용하여 lv와 iv 구분, gasolineGauge를 15로 세팅
+	}
+
+	public void showCurrentGauge() {
+		System.out.println("잔여 가솔린 : " + gasolineGauge); // 저장되어있던 gasolineGauge의 값 15 출력
+	}
+}
+
+class HybridCar extends Car {
+	private int electricGauge;
+
+	HybridCar(int gasolineGauge, int electricGauge) {
+		super(gasolineGauge); // 조상클래스 Car에서 조상의 생성자로 초기화하도록 매개변수 전달
+		this.electricGauge = electricGauge; // 참조변수 this를 사용하여 lv와 iv 구분, electricGauge를 25로 세팅
+	}
+
+	public void showCurrentGauge() {
+		super.showCurrentGauge(); // 조상클래스 Car의 메서드를 호출
+		System.out.println("잔여 전기량 : " + electricGauge); // 저장되어있던 electricGauge의 값 25 출력
+	}
+}
+
+class HybridWaterCar extends HybridCar {
+	private int waterGauge;
+
+	HybridWaterCar(int gasolineGauge, int electricGauge, int waterGauge) {
+		super(gasolineGauge, electricGauge); // 조상클래스 HybridCar에서 조상의 생성자로 초기화하도록 매개변수 전달
+		this.waterGauge = waterGauge; // 참조변수 this를 사용하여 lv와 iv 구분, waterGauge를 35로 세팅
+	}
+
+	public void showCurrentGauge() {
+		super.showCurrentGauge(); // 조상클래스 HybridCar의 메서드를 호출
+		System.out.println("잔여 워터량 : " + waterGauge); // 저장되어있던 waterGauge의 값 35 출력
+	}
+}
+
+class Practice1 {
+	public static void main(String[] args) {
+		HybridWaterCar c = new HybridWaterCar(15, 25, 35); // 참조변수 c가 가르키는 개체생성 후 매개변수가 있는 생성자로 초기화
+		c.showCurrentGauge(); // 참조변수 c가 가르키는 showCurrentGauge 메서드 호출
+	}
+}
