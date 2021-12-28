@@ -1,0 +1,69 @@
+package practice;
+
+abstract class People { // 추상메서드를 지니고 있으므로 추상클래스화
+	public void printInfo() {
+		System.out.println("나는 사람입니다.");
+	}
+
+	abstract void eat(); // 추상메서드
+}
+
+abstract class Kid extends People { // 추상클래스화(eat 메서드가 정의되지 않았으므로)
+	public void printInfo() { // 오버라이딩
+		super.printInfo(); // 조상인 People 클래스의 메서드 호출
+		System.out.println("그리고 나는 어린이입니다.");
+	}
+
+	public void study() {
+		System.out.println("그리고 나는 학교를 갑니다.");
+	}
+
+	abstract void eat(); // 추상메서드
+}
+
+class Adult extends People {
+	public void printInfo() { // 오버라이딩
+		super.printInfo(); // 조상인 People 클래스의 메서드 호출
+		System.out.println("그리고 나는 어른입니다.");
+	}
+
+	public void work() {
+		System.out.println("그리고 나는 회사를 갑니다.");
+	}
+
+	public void eat() { // 오버로딩
+		System.out.println("그리고 나는 술을 먹을 수 있습니다.");
+	}
+
+	public void eat(Object obj) { // 오버라이딩
+		System.out.println("그리고 나는 술을 먹을 수 있습니다2.");
+	}
+}
+
+public class Practice2 {
+
+	public static void main(String[] args) {
+//		People people = new Kid();	 		 	Q. 에러의 이유? 추상클래스이므로 객체생성 불가
+
+		People people = new Adult(); // 조상클래스 타입의 참조변수로 자손클래스의 인스턴스를 참조
+		people.printInfo();
+//		people.work();							Q. 에러의 이유? 조상 클래스에는 work 메서드가 없음 => 형변환 필요
+		if (people instanceof Adult) { // 형변환 가능여부 확인(true)
+			((Adult) people).work(); // 자손타입으로 형변환
+		}
+
+		Adult adult = new Adult();
+		adult.eat(adult);
+	}
+
+//	private void eat(Adult adult) {
+//		// TODO Auto-generated method stub
+//	}
+
+}
+
+//class random {
+//	public static void eat(People people) { // 참조형 매개변수는 자신과 같은 타입 or 자손타입 인스턴스도 넘겨줄 수 있음
+//		people.eat();
+//	}
+//}
