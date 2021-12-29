@@ -62,16 +62,16 @@ class SmartTv extends Tv {
 1. A is B ☞ 상속관계
 2. A has B ☞ 포함관계
 ```
-![상속 vs 포함](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_1.3_%EC%83%81%EC%86%8D%ED%8F%AC%ED%95%A8.JPG)
+![상속 vs 포함](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_1.3_%EC%83%81%EC%86%8D%ED%8F%AC%ED%95%A8.JPG)
 ### 1.4 단일 상속
-![단일상속](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_1.4_%EB%8B%A8%EC%9D%BC%EC%83%81%EC%86%8D.JPG)
+![단일상속](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_1.4_%EB%8B%A8%EC%9D%BC%EC%83%81%EC%86%8D.JPG)
 
 ### 1.5 Object 클래스 - 모든 클래스의 조상
 * 모든 클래스는 자동적으로 Object 클래스로부터 상속
 * Object 클래스는 결국 마지막 최상위 조상 
 > Q. 최상위 조상인 Object 클래스로부터 어떤 멤버를 사용할 수 있는가?
 > > Object 클래스에 정의된 11개 메서드는 별도 정의 없이 사용 가능 
-![Objcet 클래스의 메서드](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_1.5_Object%20%ED%81%B4%EB%9E%98%EC%8A%A4.JPG)
+![Objcet 클래스의 메서드](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_1.5_Object%20%ED%81%B4%EB%9E%98%EC%8A%A4.JPG)
 
 -------------------
 ## 2. 오버라이딩(overriding)    
@@ -79,7 +79,7 @@ class SmartTv extends Tv {
 * 의미: 조상 클래스로부터 상속 받은 메서드의 내용을 변경하는 것
 * 방법: 자손 클래스 자신에 맞게 구현부만 변경 
   
-![오버라이딩](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_2.1_%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9.JPG)
+![오버라이딩](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_2.1_%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9.JPG)
 
 ### 2.2 성립조건
 `★THINGS TO REMEMBER`
@@ -104,7 +104,7 @@ class SmartTv extends Tv {
 * 오버로딩 : 새로운 메서드 정의 (new)
 * 오버라이딩 : 상속받은 메서드의 내용을 변경 (change, modify)
 ```
-![오버로딩vs오버라이딩](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_2.3_%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9vs%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9.JPG)
+![오버로딩vs오버라이딩](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_2.3_%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9vs%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9.JPG)
 ### 2.4 super
 * 의미: 자손 클래스에서 조상 클래스로부터 상속받은 멤버를 잠조하는 데 사용되는 참조변수
 * 참조변수 this와 기본적으로 같음
@@ -114,7 +114,7 @@ class SmartTv extends Tv {
 ```
 * 특징: 인스턴스 메서드에서만 사용 가능(static 메서드에서는 사용 불가)
  ☞ 모든 인스턴스 메서드에는 자신이 속한 인스턴스의 주소가 지역변수로 저장 
- ![super 예시](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_2.4_super.JPG)
+ ![super 예시](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_2.4_super.JPG)
 
 ### 2.5 super() - 조상 클래스의 생성자
 * 의미: 조상 클래스의 생성자를 호출하는 데 사용되는 생성자
@@ -122,7 +122,7 @@ class SmartTv extends Tv {
 * 특징: 모든 클래스의 생성자는 첫 줄에 반드시 자신의 다른 생성자 this() or 조상의 생성자 super()를 호출해야 한다
   - 그렇지 않으면 컴파일러는 생성자 첫 줄에 super() 자동 추가 
  
- ![super() 예시](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_2.5_super().JPG)
+ ![super() 예시](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_2.5_super().JPG)
 > Q1. 컴파일 에러가 발생한 이유는?
 > > A1. Point3d(inx x, int y, int x) 호출 시 컴파일러가 자동으로 super() 추가
 > > <br> ☞ super()은 조상 Point 클래스의 기본생성자인 Point()를 의미
@@ -135,11 +135,11 @@ class SmartTv extends Tv {
 ### 3.1 패키지
 * 의미: 관련된 클래스 및 인터페이스 묶음
   
- ![패키지](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_3.1_%ED%8C%A8%ED%82%A4%EC%A7%80.JPG)
+ ![패키지](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_3.1_%ED%8C%A8%ED%82%A4%EC%A7%80.JPG)
 ### 3.2 패키지의 선언
 * 방식: package 패키지명;
   
- ![패키지의 선언](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_3.2_%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98%EC%84%A0%EC%96%B8.JPG)
+ ![패키지의 선언](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_3.2_%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98%EC%84%A0%EC%96%B8.JPG)
 
  
 ### 3.3 import문
@@ -150,9 +150,9 @@ class SmartTv extends Tv {
   
 ### 3.4 import문의 선언
   
- ![import문의 선언](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_3.4_import%EB%AC%B8%EC%9D%98%EC%84%A0%EC%96%B8.JPG)
+ ![import문의 선언](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_3.4_import%EB%AC%B8%EC%9D%98%EC%84%A0%EC%96%B8.JPG)
  
- ![import문의 선언2](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_3.4_import%EB%AC%B8%EC%9D%98%EC%84%A0%EC%96%B82.JPG)
+ ![import문의 선언2](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_3.4_import%EB%AC%B8%EC%9D%98%EC%84%A0%EC%96%B82.JPG)
  
  ---------------------
 ## 4. 제어자(modifier)
@@ -168,16 +168,16 @@ class SmartTv extends Tv {
   - 배치: 접근 제어자는 보통 가장 왼쪽
 
 ### 4.2 static - 클래스의, 공통적인
-![static](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_4.2_static.JPG)
+![static](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_4.2_static.JPG)
 ### 4.3 final - 마지막의, 변경될 수 없는
-![final](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_4.3_final.JPG)
+![final](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_4.3_final.JPG)
 ### 4.4 abstract - 추상의, 미완성의
-![abstract](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_4.4_abstract.JPG)
+![abstract](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_4.4_abstract.JPG)
 ### 4.5 접근 제어자
 * 의미: 멤버 또는 클래스에 사용되어 외부에서 접근하지 못하도록 제한하는 역할
 * 종류
   
-![접근 제어자](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_4.5_%EC%A0%91%EA%B7%BC%EC%A0%9C%EC%96%B4%EC%9E%90.JPG)
+![접근 제어자](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_4.5_%EC%A0%91%EA%B7%BC%EC%A0%9C%EC%96%B4%EC%9E%90.JPG)
 * 대상에 따른 사용
   
 | 대상 | 사용가능 접근 제어자 |
@@ -203,4 +203,4 @@ class SmartTv extends Tv {
 
 * 유의사항
   
-![유의사항](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/ch7_4.6_%EC%A0%9C%EC%96%B4%EC%9E%90%EC%A1%B0%ED%95%A9.JPG)
+![유의사항](https://github.com/doxxx93/javastudy/blob/main/Ch07/Mina%20Park/summary/capture/ch7_4.6_%EC%A0%9C%EC%96%B4%EC%9E%90%EC%A1%B0%ED%95%A9.JPG)
