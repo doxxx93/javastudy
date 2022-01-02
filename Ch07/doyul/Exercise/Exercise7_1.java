@@ -11,6 +11,7 @@ class SutdaDeck {
     final int CARD_NUM = 20;
     SutdaCard[] cards = new SutdaCard[CARD_NUM];
 
+
     SutdaDeck() {
 /*
 (1) 배열 SutdaCard를 적절히 초기화 하시오.
