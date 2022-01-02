@@ -21,7 +21,7 @@
 
 ### 1.2 예외 클래스의 계층구조
 
-![계층구조]()
+![계층구조](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.2_%EC%98%88%EC%99%B8%ED%81%B4%EB%9E%98%EC%8A%A4%20%EA%B3%84%EC%B8%B5%EA%B5%AC%EC%A1%B0.JPG)
 
 * 예외 클래스의 종류
 ```
@@ -34,19 +34,19 @@
 ### 1.3 예외 처리하기(try-catch문)
 * 예외처리 방법
 
-![예외처리]()
+![예외처리](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.3_%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC.JPG)
 
 ### 1.4 try-catch문에서의 흐름
 * 예외처리 흐름
 
-![예외처리 흐름]()
+![예외처리 흐름](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.4_%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC%20%ED%9D%90%EB%A6%84.JPG)
 
 ### 1.5 예외발생과 catch 블럭
 #### 1.5.1 catch 블럭 사용
 * catch 블럭 
   - 어떤 종류의 예외가 발생할지 모르므로 마지막에 최고조상인 Exception을 추가하면 좋음
 
-![catch 블럭]()
+![catch 블럭](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.5_catch%EB%B8%94%EB%9F%AD.JPG)
 
 #### 1.5.2 printStack Trace()와 getMessage()
 * 의미
@@ -72,7 +72,7 @@
 ### 1.6 예외 발생시키기
 #### 1.6.1 기본
 
-![예외발생시키기]()
+![예외발생시키기](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.6_%EC%98%88%EC%99%B8%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0.JPG)
 
 #### 1.6.2 checked 예외, unchecked 예외
 ```
@@ -110,7 +110,7 @@ class Ex8_8 {
 3. 은폐(덮기) : catch 블럭에 아무것도 선언하지 X
 4. 예외 되던지기(양쪽에서 처리)
 ```
-![예외선언]()
+![예외선언](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.7_%EC%98%88%EC%99%B8%EC%84%A0%EC%96%B8.JPG)
 
 ### 1.8 finally 블럭
 * 의미: try-catch문 외에 예외를 처리
@@ -118,7 +118,7 @@ class Ex8_8 {
 * 작성: try-catch문 끝에 선택적으로 추가
 * 비고: 예외발생시 try -> catch -> finally 순으로 실행, 미발생시 try -> finally 순으로 실행
 
-![finally]()
+![finally](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.8_finally.JPG)
 
 <!-- ### 1.9 자동 자원 반환: try-with-resources문
 * 의미: try-catch문의 변형
@@ -132,13 +132,13 @@ class Ex8_8 {
 > >> Q2. 내용은 어떤걸 정의하면 될까?
 > >>> A2. 보통 매개변수로 String msg를 받는 생성자를 통해 에러메시지를 추가
 
-![사용자정의예외]()
+![사용자정의예외](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.10_%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98%EC%98%88%EC%99%B8.JPG)
 
 ### 1.11 예외 되던지기
 * 의미: 예외처리 후 다시 예외를 발생시키는 것
   - 필요시 호출한 메서드와 호출된 메서드 양쪽에서 모두 예외처리하도록 분담
 
-![예외되던지기]()
+![예외되던지기](https://github.com/doxxx93/javastudy/blob/main/Ch08/Mina%20Park/summary/capture/ch8_1.11_%EC%98%88%EC%99%B8%EB%90%98%EB%8D%98%EC%A7%80%EA%B8%B0.JPG)
 
 ### 1.12 연결된 예외
 * 의미: 하나의 예외가 다른 예외를 발생
