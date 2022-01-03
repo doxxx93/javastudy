@@ -16,6 +16,22 @@ class SutdaDeck {
 /*
 (1) 배열 SutdaCard를 적절히 초기화 하시오.
 */
+        int i = 0;
+//        for (int n = 0; n < cards.length; n++) {
+//            if (i == 0 || i == 2 || i == 7) {
+//                cards[i++] = new SutdaCard((n + 1) / 2 +1 , true);
+//
+//            } else {
+//                cards[i++] = new SutdaCard((n + 1) / 2 +1, false);
+//            }
+//        }
+        for (int n = 0; n < cards.length; n++) {
+            if (i == 0 || i == 2 || i == 7) {
+                cards[i++] = new SutdaCard(n % 10 + 1, true);
+            } else {
+                cards[i++] = new SutdaCard(n % 10 + 1, false);
+            }
+        }
     }
 }
 
@@ -23,7 +39,7 @@ class SutdaCard {
     int num;
     boolean isKwang;
 
-    SutdaCard() {
+    SutdaCard(int i) {
         this(1, true);
     }
 
@@ -41,7 +57,7 @@ class SutdaCard {
 class Exercise7_1 {
     public static void main(String[] args) {
         SutdaDeck deck = new SutdaDeck();
-        for (int i = 0; i < deck.cards.length; i++)
+        for (int i = 0; i < deck.cards.length; i++) // 20
             System.out.print(deck.cards[i] + ",");
     }
 }
