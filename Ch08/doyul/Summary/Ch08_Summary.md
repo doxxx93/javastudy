@@ -1,9 +1,10 @@
 # Ch08. 예외처리
----
-## 1. 예외처리(exception handling)
+-----------------
+
+# 1. 예외처리(exception handling)
 
 ### 1.1 프로그램 오류
-에러의 종류
+
 * 컴파일 에러(compile-time error): 컴파일 할 때 발생하는 에러
   - java 컴파일러의 기능: 구문체크, 번역, 최적화, 생략된 코드 추가
 * 런타임 에러(runtime error): 실행 할 때 발생하는 에러
@@ -54,7 +55,6 @@ try{
 * 예외가 발생하면, 이를 처리할 catch블럭을 찾아 내려감
 * 일치하는 catch블럭이 없으면, 예외는 처리 안됨
 * Exception이 선언된 catch블럭은 모든 예외 처리(마지막 catch 블럭)
-  - } catch (Exception e) { } -> Exception 타입의 참조변수가 아닌 Exception클래스의 참조변수 선언
 
 ### 1.6 printStackTrace()와 getMessage()
 
