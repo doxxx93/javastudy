@@ -4,24 +4,37 @@
 ## 1.컬렉션 프레임웍(Collections Framework)
 
 * 컬렉션(collection)
-  - 여러 객체(데이터)를 모아 놓은 것을 의미
+    - 여러 객체(데이터)를 모아 놓은 것을 의미
 * 프레임웍(framework)
-  - 표준화, 정형화된 체계적인 프로그래밍 방식
-  - 라이브러리 + 프로그래밍 하는 방식까지 정해둠
-  - 생산성 증가 (spring)
-* 컬렉션 프레임웍(collection framework)
-  - 컬렉션(다수의 객체)을 다루기 위한 표준화된 프로그래밍 방식
-  - 컬렉션을 쉽고 편리하게 다룰 수 있는 다양한 클래스를 제공
-  - java.util패키지에 포함. JDK1.2부터(표준화) 제공
+    - 표준화, 정형화된 체계적인 프로그래밍 방식
+    - 라이브러리 + 프로그래밍 하는 방식까지 정해둠
+    - 생산성 증가 (spring)
+* **컬렉션 프레임웍**(collection framework)
+    - 컬렉션(다수의 객체)을 다루기 위한 표준화된 프로그래밍 방식
+    - 컬렉션을 쉽고 편리하게 다룰 수 있는 다양한 클래스를 제공
+    - java.util패키지에 포함. JDK1.2부터(표준화) 제공
 * 컬렉션 클래스(collection class)
-  - 다수의 데이터를 저장할 수 있는 클래스(예, vector, ArrayList, HashSet)
+    - 다수의 데이터를 저장할 수 있는 클래스(예, vector, ArrayList, HashSet)
+
 ### 1.1 컬렉션 프레임웍의 핵심 인터페이스
+
 * 컬렉션 프레임웍에서는 컬렉션데이터 그룹을 3개의 인터페이스로 다룬다.
 
 ![컬렉션프레임웍의핵심인터페이스와 그 특징](1.png)
-* List Interface(목록): 순서 있음, 중복 허용
-* Set Interface(집합): 순서 없음, 중복 불가
-* Map Interface: 순서 없음, 키(ID)는 중복 불가, 값(PW)은 중복 허용
+
+* **List Interface(목록)**: (저장)순서 있음, 중복 허용
+
+  ![ListInterface상속계층도](3.png)
+
+* **Set Interface(집합)**: (저장)순서 없음, 중복 불가
+
+  ![SetInterface상속계층도](4.png)
+    - 집합과 관련된 메서드들은 합집합, 부분집합, 차집합, 교집합이 있으며 반환 타입은 boolean이다.
+        + Collection에 변화가 있으면 true, 아니면 false를 반환
+* **Map Interface**: 순서 없음, 키(ID)는 중복 불가, 값(PW)은 중복 허용
+
+  ![MapInterface상속계층도](5.png)
+
 ### 1.2 ArrayList
 
 ### 1.3 LinkedList
