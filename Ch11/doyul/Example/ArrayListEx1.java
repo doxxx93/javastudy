@@ -9,14 +9,14 @@ class ArrayListEx1 {
         ArrayList list1 = new ArrayList(10);
         // ArrayList에는 객체만 저장가능
         // autoboxing에 의해 기본형이 참조형으로 자동변환(9장)
-        list1.add(new Integer(5));
+        list1.add(5);
         // list1.add(5); 라 적어도 됨
         // 인텔리제이에서는 boxing을 없애라고 추천해줌
-        list1.add(new Integer(4));
-        list1.add(new Integer(2));
-        list1.add(new Integer(0));
-        list1.add(new Integer(1));
-        list1.add(new Integer(3));
+        list1.add(4);
+        list1.add(2);
+        list1.add(0);
+        list1.add(1);
+        list1.add(3);
 //        ArrayList(Collection c)
         ArrayList list2 = new ArrayList(list1.subList(1, 4));
 //      풀어쓰면 아래의 두줄과 같이 표현가능
@@ -57,13 +57,13 @@ class ArrayListEx1 {
         list2.add(3, "A"); // add(int index, E element)
         print(list1, list2);
 
-        list2.set(3, "AA");
+        list2.set(3, "AA"); // set(int index, E element)
         print(list1, list2);
 
 
         list1.add(0, "1");
         // indexOf() 는 지정된 객체의 위치(index)를 알려준다.
-        System.out.println("index="+ list1.indexOf("1")); //리스트의 String 1과 integer 1이 다름
+        System.out.println("index=" + list1.indexOf("1")); //리스트의 String 1과 integer 1이 다름
         print(list1, list2);
 
 //        list1.remove(1);
