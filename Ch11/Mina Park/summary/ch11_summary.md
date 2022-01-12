@@ -403,4 +403,87 @@ class Person {
 		return name + ":" + age;
 ```
 
+### 1.9 TreeSet
+* 의미: 이진탐색트리(binary search tree)로 구현
+  - 장점: 범위탐색 및 정렬에 유리
+  - 단점:데이터가 많을수록 추가/삭제에 시간이 오래 소요
+* 특징: 이진트리는 모든 노드가 최대 2개의 하위노드를 가짐
+* 비고: 각 요소가 나무 형태로 연결(LinkedList의 변형)
 
+```
+[참고] 이진탐색트리
+* 의미: 부모보다 작은 값은 왼쪽, 큰 값은 오른쪽에 저장
+* 특징: 데이터가 많아질수록 추가/삭제에 시간이 더 소요(비교 횟수 증가)
+```  
+* 데이터 저장과정: boolean add(Object o)
+  
+![오버라이딩](https://github.com/doxxx93/javastudy/blob/main/Ch11/Mina%20Park/summary/capture/ch11_1.10_%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9.JPG)
+
+* 범위검색: TreeSet은 특정값에 대한 범위검색이 매우 유용
+  
+![범위검색](https://github.com/doxxx93/javastudy/blob/main/Ch11/Mina%20Park/summary/capture/ch11_1.9_%EB%B2%94%EC%9C%84%EA%B2%80%EC%83%89.JPG)
+
+* 트리순회: 이진 트리의 모든 노드를 특정순서로 읽는 것(전위/중위/후위)
+  
+![트리순회](https://github.com/doxxx93/javastudy/blob/main/Ch11/Mina%20Park/summary/capture/ch11_1.9_%ED%8A%B8%EB%A6%AC%EC%88%9C%ED%9A%8C.JPG)
+
+### 1.10 HashMap과 Hashtable
+
+* 의미: Map 인터페이스를 구현(데이터를 키-쌍 값으로 저장)
+  - HashMap(동기화 X)은 Hashtable(동기화 O)의 신버전
+
+![종류](https://github.com/doxxx93/javastudy/blob/main/Ch11/Mina%20Park/summary/capture/ch11_1.10_%EC%A2%85%EB%A5%98.JPG)
+
+1) HashMap
+   - 해싱기법으로 데이터를 저장
+   - 데이터가 많아도 검색이 빠름
+![해시맵](https://github.com/doxxx93/javastudy/blob/main/Ch11/Mina%20Park/summary/capture/ch11_1.10_%ED%95%B4%EC%8B%9C%EB%A7%B5.JPG)
+
+> Q. 해싱이란?
+> > A. 해시함수를 이용해서 데이터를 저장하고 읽어오는 것 
+> >> 해시함수에 키를 넣으면 해시코드(저장위치/ 배열 index)를 알려줌
+
+> Q. 해시테이블이란?
+> > Q. 배열과 링크드리스트가 조합된 형태(2차원 배열)
+> >> 배열의 장점인 접근성 + 링크드리스트의 장점인 변경 유리
+
+* 해시테이블에 저장된 데이터를 가져오는 과정
+  
+![해싱](https://github.com/doxxx93/javastudy/blob/main/Ch11/Mina%20Park/summary/capture/ch11_1.10_%ED%95%B4%EC%8B%B1.JPG) 
+
+![메서드](https://github.com/doxxx93/javastudy/blob/main/Ch11/Mina%20Park/summary/capture/ch11_1.10_%EB%A9%94%EC%84%9C%EB%93%9C.JPG)
+
+``` java
+class Ex11_16 {
+	public static void main(String[] args) {
+		HashMap map = new HashMap();
+		map.put("myId", "1234");
+		map.put("asdf", "1111");
+		map.put("asdf", "1234"); // 위와 키값이 같으므로 값이 1234로 변경
+
+		Scanner s = new Scanner(System.in); // 화면으로부터 라인단위로 입력받음
+
+		while (true) {
+			System.out.println("id와 password를 입력해주세요");
+			System.out.print("id :");
+			String id = s.nextLine().trim(); // 공백 제거
+
+			System.out.print("password :");
+			String password = s.nextLine().trim();
+			System.out.println();
+
+			if (!map.containsKey(id)) {
+				System.out.println("입력하신 id는 존재하지 않습니다. 다시 입력해주세요");
+				continue; // 다시 앞으로 되돌아가기
+			}
+
+			if (!(map.get(id)).equals(password)) {
+				System.out.println("비밀번호가 일치하지 않습니다. 다시 입력해주세요");
+			} else {
+				System.out.println("id와 비밀번호가 일치합니다.");
+				break;
+			}
+		} // while
+	}
+}
+``` 
