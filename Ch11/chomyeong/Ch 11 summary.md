@@ -8,6 +8,7 @@
 ### Collection 메서드
 
 - 추가, 삭제, 포함?, 비교, hashcode, 비어있나?, size, 배열반환, iterator 얻기 등
+- **범위를 매개변수로 활용할 때 끝부분은 포함하지않는다**!!!
 
 ### List 메서드
 
@@ -119,13 +120,13 @@ ex) 기차 연결, 퍼즐 연결
     - 다만 크기(추가, 삭제) 불가. 내용만 변경 가능
 - 스트림 관련 메서드: parallelXXX(), spliterator(), stream()
 
-### Comparator와 Comparable
+### Comparator와 Comparable [https://st-lab.tistory.com/243](https://st-lab.tistory.com/243)
 
 - Comparable: 기본 정렬기준을 구현하는데 사용(sort 기본값), Comparator: 기본 정렬 이외 다른 기준으로 정렬하고자 할 떄 사용
     
     ⇒ sort(정렬할 배열, (정렬기준)) // 정렬기준이 없으면 객체 배열에 저장된 객체가 구현한 comparable 
     
-    ex) 문자열은 사전 순이다. 공백, 숫자, 대문자, 소문자 순.
+    ex) **`문자열은 사전 순이다. 공백, 숫자, 대문자, 소문자 순.`**
     
 - 두 객체를 비교: Comparator는 compare()가 있고, Comparable는 compareTo()가 있다. ⇒ 모두 같으면 0, 비교하는 값보다 크면 양수.
 - **`compare()과 compareTo()`** ??? EX 11-19
@@ -147,6 +148,10 @@ ex) 기차 연결, 퍼즐 연결
     적용해나가며 return 0이나 1(비교하려는 값이 더 큰 경우)이면 그대로. -1이면 역순으로.
     ```
     
+- **`차이점`**
+    - 쉽게 말하자면, Comparable은 자기 자신과 파라미터로 들어오는 객체를 비교하는 것이고, Comparator는 자기 자신의 상태가 어떻던 상관없이 파라미터로 들어오는 두 객체를 비교하는 것이다. 즉, **본질적으로 비교한다는 것 자체는 같지만, 비교 대상이 다르다는 것**이다.
+    - 또 다른 차이점이라면 Comparable은 lang패키지에 있기 때문에 import 를 해줄 필요가 없지만, Comparator는 util패키지에 있다.
+    - Comparable은 기본 정렬. Comparator는 다른 정렬 기준
 
 ### HashSet
 
@@ -220,3 +225,44 @@ public class tests {
     ```
     
 - ex 11-25 교, 차, 합집합 예제
+
+### Treeset ex) 사전 찾기
+
+- 이진 검색트리라는 자료구조의 형태로 데이터 저장
+- 특징: 정렬, 검색, 범위검색 유리, 중복 x, 저장순서 x, 추가 삭제 시간 소요
+    
+    ```html
+    class TreeNode{
+    		TreeNode left;
+    		Object element;
+    		TreeNode right;
+    }
+    ```
+    
+    - 첫번쨰로 저장되는 값이 root가 되고, 두번쨰 값부터 그 루트부터 시작해서 왼쪽/오른쪽
+    - 컴퓨터는 알아서 값을 비교하지못하기에 Comparable을 구현한 객체가 들어가거나 Comparator를 제공해서 두 객체를 비교할 방법을 제공해야한다.
+    - 관련 메서드도 자기보다 큰, 작은 녀석들 갖고 활용
+    - **`Treeset은 저장할 때 이미 정렬해놓는다.`**
+
+### HashMap(신버전)과 Hashtable
+
+- key와 value 한 쌍의 entry
+- hashing을 사용하기에 많은 양의 데이터를 검색하는데 용이
+    - Hashing이란?
+        - 선형 탐색이나 이진 탐색은 모두 키를 저장된 키 값과 반복적으로 비교함으로써 탐색하고자 하는 항목에 접근한다.  더 빠른 탐색 알고리즘을 요구될때, 해싱은 키에 산술적인 연산을 적용하여 항목이 저장되어 있는 테이블의 주소를 계산하여 항목에 접근한다.
+            
+            ![다운로드.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/217e348b-97d1-4a41-8b83-38fd011b1d08/다운로드.png)
+            
+            - 키값 k를 입력받아 해시 함수 h(k)로 연산한 결과인 해시 주소 h(k)를 인덱스로 사용하여 해시 테이블에 있는 항목에 접근
+        
+- entry는 키와 값을 갖고있는 하나의 클래스. key는 unique여야한다.
+- 메서드: key를 활용하는 게 많다
+
+- EX 11-30 로그인 제대로 할 때까지 탈출x
+    - key로 비밀번호 값을 가져와서 비교
+- EX 11-31 HashMap의 **`entryset을 Set 클래스로 형변환`**하고 iterator를 사용하여 읽어나간다.
+    - Collection과 이를 구현한 List와 Set만 사용가능하기 떄문에
+    - keyset(), values() 처럼 key 값들만 모아놓거나 값들만 모아놓을 수도 있다.
+
+- Ex **`11-32`**  연락처 등록 ⇒ 꼭 직접 해볼 것
+    - key값이 없을 때 등록하게끔하는 메서드
