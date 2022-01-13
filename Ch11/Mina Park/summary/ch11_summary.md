@@ -487,3 +487,19 @@ class Ex11_16 {
 	}
 }
 ``` 
+
+### 1.13 Collections 
+1. 컬렉션을 위한 메서드(static) 제공
+  - 컬렉션 채우기, 복사, 정렬, 검색 등
+  - fill(), copy(), sort(), binarySearch() 
+2. 컬렉션의 동기화: synchronizedxxx()
+3. 변경불가(readOnly) 컬렉션 만들기: unmodifiablexxx()
+4. 싱글톤 컬렉션 만들기: singletonxxx()
+    - 객체 1개만 저장
+5. 한 종류의 객체만 저장하는 컬렉션 만들기: checkedxxx()
+    - jdk 1.5 이전 버전의 경우는 checked를 활용
+
+### 1.14 컬렉션 클래스 정리 및 요약
+
+
+![요약](https://github.com/doxxx93/javastudy/blob/main/Ch11/Mina%20Park/summary/capture/ch11_1.13_%EC%9A%94%EC%95%BD.JPG)
