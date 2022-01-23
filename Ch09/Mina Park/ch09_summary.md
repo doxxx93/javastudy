@@ -7,7 +7,7 @@
 * 의미: 모든 클래스의 최고 조상
   - 오직 11개의 메서드를 가짐
  
-  ![메서드]()
+  ![메서드](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1.1_%EB%A9%94%EC%84%9C%EB%93%9C.JPG)
 
 ### 1.2 equals()
 * 의미: 객체 자신(this)과 주어진 객체(obj)를 비교
@@ -16,7 +16,7 @@
 ### 1.3 equals()의 오버라이딩
 * 의미: 인스턴스 변수의 값을 비교하기 위해서는 equals()를 오버라이딩 필요
   
-  ![오버라이딩예시]()
+  ![오버라이딩예시](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1.3_%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9.JPG)
 
 ### 1.4 hashCode()
 * 의미: 객체의 해시코드를 반환하는 메서드
@@ -32,7 +32,7 @@
 ### 1.5~6 toString(), toString()의 오버라이딩
 * 의미: 객체(iv 집합)를 문자열로 변환하기 위한 메서드
   
-  ![toString예시]()
+  ![toString예시](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1.5_toString.JPG)
 
 
 ### 1.7 String 클래스
@@ -42,7 +42,7 @@
   - 내용을 변경할 수 없는 불변 클래스 => 문자열 변경시마다 새로운 클래스가 생성됨
   - 문자열의 결합/변경이 잦을 경우, 내용변경이 가능한 StringBuffer 사용
   
-  ![String클래스]()
+  ![String클래스](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1_7_String%ED%81%B4%EB%9E%98%EC%8A%A4.JPG)
 
 ### 1.8 문자열의 비교
 * 방식 비교
@@ -78,16 +78,16 @@ STring str = "";
   String s = ""; //빈 문자열로 초기화
   Char c = ''; //공백으로 초기화
 ```
-![빈문자열]()
+![빈문자열](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1_10_%EB%B9%88%EB%AC%B8%EC%9E%90%EC%97%B4.JPG)
 
 
 ### 1.11 String클래스의 생성자와 메서드
 
-![메서드1]()
+![메서드1](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1_11_%EB%A9%94%EC%84%9C%EB%93%9C1.JPG)
 
-![메서드2]()
+![메서드2](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1_11_%EB%A9%94%EC%84%9C%EB%93%9C2.JPG)
 
-![메서드3]()
+![메서드3](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1_11_%EB%A9%94%EC%84%9C%EB%93%9C3.JPG)
 
 ### 1.12 join()과 StringJoiner
 
@@ -130,5 +130,5 @@ STring str = "";
     - 즉, 값이 아닌 주소를 비교한다는 의미
     - 값 비교를 할 경우, StringBuffer를 String으로 변환 후 equals()로 비교
 
-![stringBuffer]()
+![stringBuffer](https://github.com/doxxx93/javastudy/blob/main/Ch09/Mina%20Park/capture/ch9_1_16_stringBuffer.JPG)
 
